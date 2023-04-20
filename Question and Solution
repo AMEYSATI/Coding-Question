@@ -1,7 +1,4 @@
-Longest Pallindrome
 https://leetcode.com/problems/longest-palindrome/
-
-Solution:
 
 class Solution {
 public:
