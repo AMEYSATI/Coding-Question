@@ -1,0 +1,20 @@
+https://leetcode.com/problems/arranging-coins/description/?envType=study-plan&id=binary-search-i
+
+class Solution {
+public:
+    int arrangeCoins(int n) 
+    {
+        vector<int> arr;
+        int i=1;
+        for(i=1;true;i++)
+        {
+            if(n>=i)
+                n=n-i;
+            else
+                break;
+        }
+        
+        return i-1;
+        
+    }
+};
