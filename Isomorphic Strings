@@ -1,0 +1,39 @@
+https://leetcode.com/problems/isomorphic-strings/
+
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) 
+    {
+        map<char,int> m1;
+        map<char,int> m2;
+
+        for(int i=0;i<t.size();i++)
+        {
+            m1[t[i]]++;
+            m2[s[i]]++;
+        }
+
+        if(m1.size()!=m2.size())
+            return false;
+
+        map<char,char> mp;
+        
+        int r=s.size();
+
+        for(int i=0;i<t.size();i++)
+            mp[t[i]]=s[i];
+        
+        for(int i=0;i<t.size();i++)
+        {
+            if(mp.find(t[i])!=mp.end())
+            {
+                if(mp[t[i]]==s[i])
+                    r--;
+            }
+        }
+        if(r==0)
+            return true;
+
+        return false;    
+    }
+};
