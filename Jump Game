@@ -1,0 +1,41 @@
+https://leetcode.com/problems/jump-game/
+
+class Solution {
+public:
+   
+    bool jump(int i,int l,vector<int> &nums,vector<int> &dp)
+    {
+        if(i==l)
+            return true;
+        
+       if(nums[i]==0)
+       {
+            dp[i]= false;
+            return false;
+       }
+
+        if(dp[i]!=-1)
+            return dp[i];
+
+        for(int j=1;j<=nums[i];j++)
+        {
+            bool f=jump(i+j,l,nums,dp);
+                
+            if(f==true)
+            {
+                dp[i]=true;
+                return true;
+            }
+        }
+        dp[i]=false;
+        return false;
+        
+    }
+    bool canJump(vector<int>& nums) 
+    {
+        int i=0;
+        int l=nums.size();
+        vector<int> dp(l,-1);
+        return jump(i,l-1,nums,dp);
+    }   
+};
