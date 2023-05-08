@@ -1,0 +1,23 @@
+https://leetcode.com/problems/find-smallest-letter-greater-than-target/?envType=study-plan-v2&id=binary-search
+
+class Solution {
+public:
+    char nextGreatestLetter(vector<char>& letters, char target) 
+    {
+        char r=letters[0];
+        sort(letters.begin(),letters.end());
+        char ch=' ';
+        for(int i=0;i<letters.size();i++)
+        {
+            if(letters[i]>target)
+            {
+                ch=letters[i];
+                break;
+            }
+        }
+        if(ch==' ')
+            return r;
+        return ch;
+        
+    }
+};
