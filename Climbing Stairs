@@ -1,0 +1,19 @@
+https://leetcode.com/problems/climbing-stairs/
+
+class Solution {
+public:
+    int climbStairs(int n) 
+    {
+        vector<int> dp(n+1,-1);
+        return stairs(n,dp);
+    }
+    int stairs(int t,vector<int> &dp)
+    {
+        if(t<=1)
+            return 1;
+        if(dp[t]!=-1)
+            return dp[t];
+        else
+            return dp[t] = stairs(t-1,dp) + stairs(t-2,dp);
+    }
+};
