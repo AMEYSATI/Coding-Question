@@ -1,0 +1,26 @@
+https://leetcode.com/problems/subsets/
+
+class Solution {
+public:
+    void subset(vector<int> &nums, int i, vector<int> arr, vector<vector<int>> &vrr)
+    {
+        if (i == nums.size())
+        {
+            vrr.push_back(arr);
+            return;
+        }
+
+        subset(nums, i+1, arr, vrr);
+        arr.push_back(nums[i]);
+        subset(nums, i+1, arr, vrr);
+    }
+
+    vector<vector<int>> subsets(vector<int>& nums) 
+    {
+        int i = 0;
+        vector<int> arr;
+        vector<vector<int>> vrr;
+        subset(nums, i, arr, vrr); 
+        return vrr;
+    }
+};
