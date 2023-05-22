@@ -12,7 +12,6 @@ class Solution {
 public:
     void deleteNode(ListNode* node) {
 
-        ListNode* tail=nullptr;
         ListNode* head=node;
         head=head->next;
 
